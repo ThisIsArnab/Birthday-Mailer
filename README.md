@@ -1,2 +1,2 @@
 # Birthday Mailer in dotnet
-Send birthday mailers to recipients at a scheduled time.
+.Net Core webapp to send birthday mailers to recipients at a scheduled time.
