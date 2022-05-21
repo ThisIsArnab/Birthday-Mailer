@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BirthdayMailer.Application.Controllers;
 
+/**
+ *  The PersonController is reponsible for adding, updating or deleting people from the database.
+ */
 [ApiController]
 [Route("[controller]")]
 public class PersonController : ControllerBase
