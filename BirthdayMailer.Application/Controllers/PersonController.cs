@@ -22,4 +22,10 @@ public class PersonController : ControllerBase
         return "sample person";
     }
 
+    [HttpPost(Name = "addPerson")]
+    public IActionResult Post()
+    {
+        return Ok();
+    }
+
 }

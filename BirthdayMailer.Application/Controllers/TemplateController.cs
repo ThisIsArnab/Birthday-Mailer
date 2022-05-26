@@ -7,6 +7,7 @@ namespace BirthdayMailer.Application.Controllers;
  */
 [ApiController]
 [Route("[controller]")]
+
 public class TemplateController: ControllerBase
 {
     private readonly ILogger<TemplateController> _logger;
