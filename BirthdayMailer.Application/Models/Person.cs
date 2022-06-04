@@ -1,16 +1,16 @@
 namespace BirthdayMailer.Application.Models;
 
-public class PersonController
+public class Person
 {
     public string FirstName { get; }
 
     public string LastName { get; }
 
-    public string Email { get; }
+    public string EmailAddr { get; }
 
     /**
-     *  TODO: Need to see how to better represent day and month of birth
-     *  in db as well in model.
+     *  Day and Month should be stored as datetime in db for facilitating sorting, integrity and validation.
+     *  Store as leap year to include 29th Feb date.
      */
 
     public int DayOfBirth { get; }
@@ -24,11 +24,11 @@ public class PersonController
     /**
      *  TODO: Find better alternative to a long constructor
      */
-    public PersonController(string firstName, string lastName, string email, int dayOfBirth, int monthOfBirth, DateTime dateOfJoining, bool isActive)
+    public Person(string firstName, string lastName, string emailAddr, int dayOfBirth, int monthOfBirth, DateTime dateOfJoining, bool isActive)
     {
         FirstName = firstName;
         LastName = lastName;
-        Email = email;
+        EmailAddr = emailAddr;
         DayOfBirth = dayOfBirth;
         MonthOfBirth = monthOfBirth;
         DateOfJoining = dateOfJoining;
