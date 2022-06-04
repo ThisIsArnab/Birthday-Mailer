@@ -21,9 +21,10 @@ public class Person
 
     public bool IsActive { get; set; }
 
-    /**
-     *  TODO: Find better alternative to a long constructor
-     */
+    /// <summary>
+    /// TODO: Find better alternative to a long constructor
+    /// NOTE: Constructor parameter should match propery names for runtime to deserialize properly at [FromBody]
+    /// </summary>
     public Person(string firstName, string lastName, string emailAddr, int dayOfBirth, int monthOfBirth, DateTime dateOfJoining, bool isActive)
     {
         FirstName = firstName;
