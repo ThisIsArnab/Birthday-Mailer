@@ -1,38 +1,33 @@
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
 namespace BirthdayMailer.Application.Models;
 
 public class Person
 {
-    public string FirstName { get; }
+    public string FirstName { get; set; } = null!;
 
-    public string LastName { get; }
+    public string LastName { get; set; } = null!;
 
-    public string EmailAddr { get; }
+    [Required]
+    [EmailAddress]
+    public string EmailAddr { get; set; } = null!;
 
-    /**
-     *  Day and Month should be stored as datetime in db for facilitating sorting, integrity and validation.
-     *  Store as leap year to include 29th Feb date.
-     */
+    /// <summary>
+    /// Day and Month should be stored as datetime in db for facilitating sorting, integrity and validation.
+    /// Store as leap year to include 29th Feb date.
+    /// </summary>
+    [Required]
+    [Range(1, 31)]
+    public int DayOfBirth { get; set; }
 
-    public int DayOfBirth { get; }
-
-    public int MonthOfBirth { get; }
+    [Required]
+    [Range(1, 12)]
+    public int MonthOfBirth { get; set; }
 
     public DateTime DateOfJoining { get; set; }
 
+    [BindNever]
     public bool IsActive { get; set; }
-
-    /// <summary>
-    /// TODO: Find better alternative to a long constructor
-    /// NOTE: Constructor parameter should match propery names for runtime to deserialize properly at [FromBody]
-    /// </summary>
-    public Person(string firstName, string lastName, string emailAddr, int dayOfBirth, int monthOfBirth, DateTime dateOfJoining, bool isActive)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        EmailAddr = emailAddr;
-        DayOfBirth = dayOfBirth;
-        MonthOfBirth = monthOfBirth;
-        DateOfJoining = dateOfJoining;
-        IsActive = isActive;
-    }
 }
