@@ -1,4 +1,4 @@
-namespace BirthdayMailer.Application.EmailProviders;
+namespace BirthdayMailer.Application.EmailProviderServices;
 
 public interface IEmailProvider
 {
